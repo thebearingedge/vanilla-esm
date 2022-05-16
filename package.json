@@ -1,11 +1,17 @@
 {
   "type": "module",
+  "main": "server/index.js",
   "scripts": {
-    "dev": "vite",
+    "dev": "NODE_ENV=development nodemon .",
     "build": "vite build",
     "preview": "vite preview"
   },
   "devDependencies": {
+    "nodemon": "^2.0.16",
     "vite": "^2.9.9"
+  },
+  "dependencies": {
+    "dotenv": "^16.0.1",
+    "express": "^4.18.1"
   }
 }

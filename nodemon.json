@@ -1,0 +1,10 @@
+{
+  "watch": [
+    ".env",
+    "server/",
+    "vite.config.js"
+  ],
+  "ignore": [
+    "server/public/"
+  ]
+}
