@@ -2,6 +2,7 @@ import 'dotenv/config'
 import http from 'http'
 import express from 'express'
 import { Server as IOServer } from 'socket.io'
+import staticMiddleware from './static-middleware.js'
 
 const app = express()
 const server = http.createServer(app)
@@ -17,13 +18,7 @@ io.on('connection', socket => {
   socket.on('disconnect', () => console.log('client disconnected:', socket.id))
 })
 
-if (process.env.NODE_ENV === 'development') {
-  const { devMiddleware } = await import('./dev-middleware.js')
-  app.use(devMiddleware)
-} else {
-  const publicPath = new URL('./public', import.meta.url).pathname
-  app.use(express.static(publicPath))
-}
+app.use(staticMiddleware)
 
 server.listen(process.env.PORT, () => {
   console.log(`\napp listening on port ${process.env.PORT}\n`)
