@@ -6,5 +6,8 @@
   ],
   "ignore": [
     "server/public/"
-  ]
+  ],
+  "events": {
+    "start": "node -e 'console.clear()'"
+  }
 }

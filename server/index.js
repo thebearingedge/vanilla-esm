@@ -26,5 +26,5 @@ if (process.env.NODE_ENV === 'development') {
 }
 
 server.listen(process.env.PORT, () => {
-  console.log('app listening on port', process.env.PORT)
+  console.log(`\napp listening on port ${process.env.PORT}\n`)
 })
