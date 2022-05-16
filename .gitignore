@@ -6,9 +6,10 @@ logs
 *.log
 npm-debug.log*
 
-node_modules
-dist
-dist-ssr
+# Artifacts
+node_modules/
+server/public/
+
 *.local
 
 # Editor directories and files
