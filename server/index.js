@@ -1,10 +1,20 @@
 import 'dotenv/config'
+import http from 'http'
 import express from 'express'
+import { Server as IOServer } from 'socket.io'
 
 const app = express()
+const server = http.createServer(app)
+const io = new IOServer(server)
 
 app.use('/api/hello-world', (req, res) => {
   res.json({ hello: 'world!' })
+})
+
+io.on('connection', socket => {
+  console.log('client connected:', socket.id)
+  socket.emit('hello', { hello: 'socket' })
+  socket.on('disconnect', () => console.log('client disconnected:', socket.id))
 })
 
 if (process.env.NODE_ENV === 'development') {
@@ -15,6 +25,6 @@ if (process.env.NODE_ENV === 'development') {
   app.use(express.static(publicPath))
 }
 
-app.listen(process.env.PORT, () => {
+server.listen(process.env.PORT, () => {
   console.log('app listening on port', process.env.PORT)
 })
