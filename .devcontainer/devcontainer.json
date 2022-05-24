@@ -1,9 +1,8 @@
 {
   "name": "${containerWorkspaceFolderBasename}",
   "image": "thebearingedge/code-container:latest",
-  "mounts": [],
-  "extensions": [
-    "thebearingedge.lfz-code"
-  ],
-  "postCreateCommand": "[ -f package-lock.json ] && npm ci"
+  "postCreateCommand": "[ -f package-lock.json ] && npm ci",
+  "otherPortsAttributes": {
+    "onAutoForward": "silent"
+  }
 }
