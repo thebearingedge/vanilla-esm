@@ -1,4 +1,3 @@
-import './index.css'
 import io from 'socket.io-client'
 import renderData from './render-data.js'
 
