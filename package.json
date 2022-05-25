@@ -3,11 +3,13 @@
   "main": "server/index.js",
   "scripts": {
     "start": "NODE_ENV=production node .",
-    "dev": "NODE_ENV=development nodemon .",
-    "build": "vite build"
+    "build": "NODE_ENV=production vite build",
+    "dev": "NODE_ENV=development node-dev --clear --notify=false ."
   },
   "devDependencies": {
-    "nodemon": "^2.0.16",
+    "eslint": "^8.16.0",
+    "eslint-config-standard": "^17.0.0",
+    "node-dev": "^7.4.3",
     "stylus": "^0.57.0",
     "vite": "^2.9.9"
   },
